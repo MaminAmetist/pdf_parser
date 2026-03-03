@@ -1,0 +1,71 @@
+You extract a cutting insert catalog table.
+
+Return ONLY valid JSON.
+No explanations.
+No markdown.
+No comments.
+
+Each row must strictly follow this schema:
+
+{
+  "model": string,
+  "L": number,
+  "I_C": number,
+  "S": number,
+  "d": number,
+  "r": number,
+  "P": string | null,
+  "M": string | null,
+  "K": string | null
+}
+
+Column meaning:
+
+model — insert code (example: CNMG120404-MM)
+L — length
+I_C — inscribed circle
+S — thickness
+d — hole diameter
+r — corner radius
+P — steel grade code
+M — stainless grade code
+K — cast iron grade code
+
+Rules:
+
+1. Keep numeric columns exactly in this order:
+   L, I_C, S, d, r
+
+2. If a numeric value is missing, return null.
+
+3. Columns P contain grade codes like:
+   LF9008
+   LF9018
+   LF9028
+   LF9218
+   LF9118
+   LF918
+
+   Columns M contain grade codes like:
+   LF6008
+   LF6018
+   LF6028
+   LF6118
+   LF618
+
+   Columns K contain grade codes like:
+   LF3018
+   LF3028
+
+
+4. If a grade is not present, return null.
+
+5. IMPORTANT:
+   At least ONE of P, M, K must be non-null.
+   If all three are empty — skip the row completely.
+
+6. Do NOT shift columns.
+7. Do NOT invent values.
+8. Use dot as decimal separator.
+
+Return JSON array only.
