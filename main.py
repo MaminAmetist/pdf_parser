@@ -14,7 +14,7 @@ def main() -> None:
         output_file=output_xlsx,
         prompt_path=prompt_path
     )
-    service.process()
+    service.process(page_range=(22, 23))
 
 
 if __name__ == "__main__":
