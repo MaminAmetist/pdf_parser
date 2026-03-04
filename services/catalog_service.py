@@ -2,11 +2,15 @@ import os
 from pathlib import Path
 from typing import List, Optional, Tuple
 
+from dotenv import load_dotenv
+
 from core.exporter import ExcelExporter
 from core.normalizer import CatalogNormalizer
 from core.parser import CatalogParser
 from core.pdf_processor import PDFProcessor
 from core.vision_client import VisionClient
+
+load_dotenv()
 
 
 class CatalogService:
